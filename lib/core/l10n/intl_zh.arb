@@ -1,0 +1,20 @@
+{
+  "title": "Flutter Deer",
+  "verificationCodeLogin": "驗證碼登錄",
+  "passwordLogin": "密碼登錄",
+  "login": "登錄",
+  "forgotPasswordLink": "忘記密碼",
+  "inputPasswordHint": "請輸入密碼",
+  "inputUsernameHint": "請輸入賬號",
+  "noAccountRegisterLink": "還沒賬號？快去註冊",
+  "register": "註冊",
+  "openYourAccount": "開啟你的賬號",
+  "inputPhoneHint": "請輸入手機號",
+  "inputVerificationCodeHint": "請輸入驗證碼",
+  "inputPhoneInvalid": "請輸入有效的手機號",
+  "verificationButton": "並沒有真正發送哦，直接登錄吧！",
+  "getVerificationCode": "獲取驗證碼",
+  "confirm": "確認",
+  "resetLoginPassword": "重置登錄密碼",
+  "registeredTips": "提示：未註冊賬號的手機號，請先"
+}
