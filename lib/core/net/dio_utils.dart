@@ -38,6 +38,7 @@ class DioUtils {
   factory DioUtils() => _singleton;
 
   DioUtils._() {
+    debugPrint("hit dioUtil const");
     final BaseOptions options = BaseOptions(
       connectTimeout: _connectTimeout,
       receiveTimeout: _receiveTimeout,
@@ -68,6 +69,7 @@ class DioUtils {
 
     /// 添加攔截器
     void addInterceptor(Interceptor interceptor) {
+      debugPrint("hit dioUtil addInterceptor");
       _dio.interceptors.add(interceptor);
     }
 
@@ -105,13 +107,13 @@ class DioUtils {
       /// 使用compute條件：數據大於10KB（粗略使用10 * 1024）且當前不是集成測試（後面可能會根據Web環境進行調整）
       /// 主要目的減少不必要的性能開銷
       final bool isCompute = !Constant.isDriverTest && data.length > 10 * 1024;
-      debugPrint('isCompute:$isCompute');
+      debugPrint('isCompute: $isCompute');
       final Map<String, dynamic> map =
           isCompute ? await compute(parseData, data) : parseData(data);
       return BaseEntity<T>.fromJson(map);
     } on DioError catch (e) {
       // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx and is also not 304.
+      // that falls out of the range of "2xx" and is also not "304".
       if (e.response != null) {
         debugPrint('Dio error!');
         debugPrint('STATUS: ${e.response?.statusCode}');

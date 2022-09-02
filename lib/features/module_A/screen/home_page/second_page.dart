@@ -55,7 +55,6 @@ class _SecondPageState extends ConsumerState<SecondPage>
               TodosActionPart(),
               TodosPart(todoList: reversedTodoList),
               FloatingActionButton(onPressed: () async {
-                debugPrint("Debug preint key pressed");
                 debugPrint("key pressed");
                 _homePresenter.search("_keyword", 1, true);
               })

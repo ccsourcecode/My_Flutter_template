@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:my_template/core/constants/constant.dart';
 import 'package:my_template/core/utils/device_utils.dart';
 import 'package:my_template/core/utils/log_utils.dart';
@@ -98,15 +99,15 @@ class LoggingInterceptor extends Interceptor {
     _startTime = DateTime.now();
     Log.d('----------Start----------');
     if (options.queryParameters.isEmpty) {
-      Log.d('RequestUrl: ${options.baseUrl}${options.path}');
+      debugPrint('RequestUrl: ${options.baseUrl}${options.path}');
     } else {
-      Log.d(
+      debugPrint(
           'RequestUrl: ${options.baseUrl}${options.path}?${Transformer.urlEncodeMap(options.queryParameters)}');
     }
-    Log.d('RequestMethod: ${options.method}');
-    Log.d('RequestHeaders:${options.headers}');
-    Log.d('RequestContentType: ${options.contentType}');
-    Log.d('RequestData: ${options.data.toString()}');
+    debugPrint('RequestMethod: ${options.method}');
+    debugPrint('RequestHeaders:${options.headers}');
+    debugPrint('RequestContentType: ${options.contentType}');
+    debugPrint('RequestData: ${options.data.toString()}');
     super.onRequest(options, handler);
   }
 
@@ -116,13 +117,14 @@ class LoggingInterceptor extends Interceptor {
     _endTime = DateTime.now();
     final int duration = _endTime.difference(_startTime).inMilliseconds;
     if (response.statusCode == ExceptionHandle.success) {
-      Log.d('ResponseCode: ${response.statusCode}');
+      debugPrint('ResponseCode: ${response.statusCode}');
     } else {
-      Log.e('ResponseCode: ${response.statusCode}');
+      debugPrint('ResponseCode: ${response.statusCode}');
     }
-    // 輸出結果
-    Log.json(response.data.toString());
-    Log.d('----------End: $duration 毫秒----------');
+    // *輸出結果
+    // Log.json(response.data.toString());
+
+    debugPrint('----------End: $duration 毫秒----------');
     super.onResponse(response, handler);
   }
 

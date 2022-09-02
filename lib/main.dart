@@ -6,12 +6,12 @@ import 'package:flutter/foundation.dart';
 
 void main() async {
   // var packageInfo = await PackageInfo.fromPlatform();
-  var version = "log";
+  var version = "log 1.0";
   // "${packageInfo.packageName} ${packageInfo.version} (${packageInfo.buildNumber})";
   debugPrint = (String? message, {int? wrapWidth}) =>
       debugPrintSynchronouslyWithText(message, version, wrapWidth: wrapWidth);
   runApp(
-    const ProviderScope(
+    ProviderScope(
       child: AppWidget(),
     ),
   );

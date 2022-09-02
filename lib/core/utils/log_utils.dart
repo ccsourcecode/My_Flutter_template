@@ -4,7 +4,7 @@ import 'package:my_template/core/constants/constant.dart';
 
 /// 輸出Log工具類
 class Log {
-  static const String tag = 'DEER-LOG';
+  static const String tag = '*LOG*';
 
   static void init() {
     LogUtil.init(isDebug: !Constant.inProduction);

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:my_template/core/net/interceptors/logging_inceptor.dart';
 import 'package:my_template/features/module_A/model/service_failure.dart';
 import 'package:my_template/features/module_A/model/filmModel.dart';
@@ -15,7 +16,7 @@ class WeatherAPIProvider {
       receiveTimeout: 3000,
     );
     var dio = Dio(options);
-
+    debugPrint('message add inteceptor');
     dio.interceptors.add(AuthInterceptor());
     dio.interceptors.add(LoggingInterceptors());
     _dio = dio;

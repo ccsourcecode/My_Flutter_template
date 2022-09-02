@@ -116,7 +116,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$NowPlayingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Data implements _Data {
+class _$_Data with DiagnosticableTreeMixin implements _Data {
   const _$_Data(final List<TMDBMovieBasic> movies, this.hasReachedMax)
       : _movies = movies;
 
@@ -131,8 +131,17 @@ class _$_Data implements _Data {
   final bool hasReachedMax;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NowPlayingState.data(movies: $movies, hasReachedMax: $hasReachedMax)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NowPlayingState.data'))
+      ..add(DiagnosticsProperty('movies', movies))
+      ..add(DiagnosticsProperty('hasReachedMax', hasReachedMax));
   }
 
   @override
@@ -270,7 +279,7 @@ class __$$_DataLoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DataLoading implements _DataLoading {
+class _$_DataLoading with DiagnosticableTreeMixin implements _DataLoading {
   const _$_DataLoading(final List<TMDBMovieBasic> movies) : _movies = movies;
 
   final List<TMDBMovieBasic> _movies;
@@ -281,8 +290,16 @@ class _$_DataLoading implements _DataLoading {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NowPlayingState.dataLoading(movies: $movies)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NowPlayingState.dataLoading'))
+      ..add(DiagnosticsProperty('movies', movies));
   }
 
   @override
@@ -413,15 +430,23 @@ class __$$_ErrorCopyWithImpl<$Res> extends _$NowPlayingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error implements _Error {
+class _$_Error with DiagnosticableTreeMixin implements _Error {
   const _$_Error(this.error);
 
   @override
   final String error;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NowPlayingState.error(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NowPlayingState.error'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
