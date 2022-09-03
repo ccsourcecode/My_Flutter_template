@@ -60,7 +60,7 @@ class DioUtils {
 //    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
 //        (HttpClient client) {
 //      client.findProxy = (uri) {
-//        //proxy all request to localhost:8888
+    //? proxy all request to localhost:8888
 //        return 'PROXY 10.41.0.132:8888';
 //      };
 //      client.badCertificateCallback =
@@ -93,6 +93,7 @@ class DioUtils {
     CancelToken? cancelToken,
     Options? options,
   }) async {
+    debugPrint('URL: $url');
     final Response<String> response = await _dio.request<String>(
       url,
       data: data,
@@ -124,11 +125,11 @@ class DioUtils {
         // Error due to setting up or sending the request
         debugPrint('Error sending request!');
         debugPrint(e.message);
-        throw Exception('數據解析錯誤！');
+        throw Exception('數據解析錯誤 1！');
       }
     } catch (e) {
       debugPrint(e.toString());
-      throw Exception('數據解析錯誤！');
+      throw Exception('數據解析錯誤 2！');
     }
     // return BaseEntity<T>(ExceptionHandle.parse_error, '數據解析錯誤！', null);
   }

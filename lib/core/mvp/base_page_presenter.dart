@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:my_template/core/mvp/base_presenter.dart';
 import 'package:my_template/core/net/net.dart';
 import 'dart:io';
@@ -44,7 +45,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
       cancelToken: cancelToken ?? _cancelToken,
       onSuccess: (data) {
         if (isClose) {
-          print("isClose $isClose");
+          debugPrint("going to close progress");
           view.closeProgress();
         }
         onSuccess?.call(data);

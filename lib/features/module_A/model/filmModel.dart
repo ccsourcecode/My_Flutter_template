@@ -31,46 +31,46 @@ class FilmModel {
       String? edited,
       String? url}) {
     if (title != null) {
-      this._title = title;
+      _title = title;
     }
     if (episodeId != null) {
-      this._episodeId = episodeId;
+      _episodeId = episodeId;
     }
     if (openingCrawl != null) {
-      this._openingCrawl = openingCrawl;
+      _openingCrawl = openingCrawl;
     }
     if (director != null) {
-      this._director = director;
+      _director = director;
     }
     if (producer != null) {
-      this._producer = producer;
+      _producer = producer;
     }
     if (releaseDate != null) {
-      this._releaseDate = releaseDate;
+      _releaseDate = releaseDate;
     }
     if (characters != null) {
-      this._characters = characters;
+      _characters = characters;
     }
     if (planets != null) {
-      this._planets = planets;
+      _planets = planets;
     }
     if (starships != null) {
-      this._starships = starships;
+      _starships = starships;
     }
     if (vehicles != null) {
-      this._vehicles = vehicles;
+      _vehicles = vehicles;
     }
     if (species != null) {
-      this._species = species;
+      _species = species;
     }
     if (created != null) {
-      this._created = created;
+      _created = created;
     }
     if (edited != null) {
-      this._edited = edited;
+      _edited = edited;
     }
     if (url != null) {
-      this._url = url;
+      _url = url;
     }
   }
 
@@ -114,32 +114,32 @@ class FilmModel {
     _director = json['director'];
     _producer = json['producer'];
     _releaseDate = json['release_date'];
-    _characters = json['characters'].cast<String>();
-    _planets = json['planets'].cast<String>();
-    _starships = json['starships'].cast<String>();
-    _vehicles = json['vehicles'].cast<String>();
-    _species = json['species'].cast<String>();
+    _characters = json['characters'];
+    _planets = json['planets'];
+    _starships = json['starships'];
+    _vehicles = json['vehicles'];
+    _species = json['species'];
     _created = json['created'];
     _edited = json['edited'];
     _url = json['url'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this._title;
-    data['episode_id'] = this._episodeId;
-    data['opening_crawl'] = this._openingCrawl;
-    data['director'] = this._director;
-    data['producer'] = this._producer;
-    data['release_date'] = this._releaseDate;
-    data['characters'] = this._characters;
-    data['planets'] = this._planets;
-    data['starships'] = this._starships;
-    data['vehicles'] = this._vehicles;
-    data['species'] = this._species;
-    data['created'] = this._created;
-    data['edited'] = this._edited;
-    data['url'] = this._url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = _title;
+    data['episode_id'] = _episodeId;
+    data['opening_crawl'] = _openingCrawl;
+    data['director'] = _director;
+    data['producer'] = _producer;
+    data['release_date'] = _releaseDate;
+    data['characters'] = _characters;
+    data['planets'] = _planets;
+    data['starships'] = _starships;
+    data['vehicles'] = _vehicles;
+    data['species'] = _species;
+    data['created'] = _created;
+    data['edited'] = _edited;
+    data['url'] = _url;
     return data;
   }
 }

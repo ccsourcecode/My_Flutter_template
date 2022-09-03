@@ -7,12 +7,10 @@ class BaseEntity<T> {
 // Parsing the raw JSON data to the T class
   BaseEntity.fromJson(Map<String, dynamic> json) {
     final String type = T.toString();
+    debugPrint('Enttiy type: $type');
     if (type == (FilmModel).toString()) {
       data = FilmModel.fromJson(json) as T;
     }
-
-    debugPrint("ddd $data");
-
     // }
   }
 

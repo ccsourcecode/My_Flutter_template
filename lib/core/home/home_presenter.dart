@@ -53,7 +53,7 @@ class HomePagePresenter extends BasePagePresenter<HomeIMvpView> {
         url: HttpApi.film,
         queryParameters: params,
         isShow: isShowDialog, onSuccess: (data) {
-      debugPrint("xxxx AAAA");
+      debugPrint("got data from http");
       if (data != null && data.title != null) {
         debugPrint("xxxx ${data.title!}");
         /*
