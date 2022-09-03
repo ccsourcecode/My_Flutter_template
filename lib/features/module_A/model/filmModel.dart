@@ -142,4 +142,10 @@ class FilmModel {
     data['url'] = _url;
     return data;
   }
+
+  @override
+  @override
+  String toString() {
+    return 'FilmModle(title: $_title, producer: $_producer, director: $_director)';
+  }
 }

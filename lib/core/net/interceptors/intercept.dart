@@ -104,10 +104,10 @@ class LoggingInterceptor extends Interceptor {
       debugPrint(
           'RequestUrl: ${options.baseUrl}${options.path}?${Transformer.urlEncodeMap(options.queryParameters)}');
     }
-    debugPrint('RequestMethod: ${options.method}');
-    debugPrint('RequestHeaders:${options.headers}');
-    debugPrint('RequestContentType: ${options.contentType}');
-    debugPrint('RequestData: ${options.data.toString()}');
+    debugPrint('Request Method: ${options.method}');
+    debugPrint('Request Headers:${options.headers}');
+    debugPrint('Request ContentType: ${options.contentType}');
+    debugPrint('Request Data: ${options.data.toString()}');
     super.onRequest(options, handler);
   }
 
@@ -119,7 +119,10 @@ class LoggingInterceptor extends Interceptor {
     if (response.statusCode == ExceptionHandle.success) {
       debugPrint('ResponseCode: ${response.statusCode}');
     } else {
-      debugPrint('ResponseCode: ${response.statusCode}');
+      debugPrint('Dio error!');
+      Log.e('ResponseCode: | ${response.statusCode}');
+      Log.d('Data: | ${response.data}');
+      Log.d('Headers: | ${response.headers}');
     }
     // *輸出結果
     // Log.json(response.data.toString());

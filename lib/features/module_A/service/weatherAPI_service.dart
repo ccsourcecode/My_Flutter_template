@@ -6,7 +6,7 @@ class WeatherAPIservice {
   final _provider = WeatherAPIProvider();
 
   void fetchFilm() async {
-    String service = "/films/1";
+    String service = "/films/2";
     var params = {};
 
     final getData = await _provider.fetchFilm(service);

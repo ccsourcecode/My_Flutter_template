@@ -100,7 +100,7 @@ class BasePagePresenter<V extends IMvpView> extends BasePresenter<V> {
         'uploadIcon': await MultipartFile.fromFile(path, filename: name)
       });
       await requestNetwork<String>(Method.post,
-          url: HttpApi.upload, params: formData, onSuccess: (data) {
+          url: HttpApiUrl.upload, params: formData, onSuccess: (data) {
         imgPath = data ?? '';
       });
     } catch (e) {

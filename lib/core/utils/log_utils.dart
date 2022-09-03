@@ -1,5 +1,6 @@
 import 'dart:convert' as convert;
 import 'package:common_utils/common_utils.dart';
+import 'package:intl/intl.dart';
 import 'package:my_template/core/constants/constant.dart';
 
 /// 輸出Log工具類
@@ -7,7 +8,7 @@ class Log {
   static const String tag = '*LOG*';
 
   /*  open emoji panel for windows OS: win + .
-  📕: error message
+  📕: error message 🚀
   📙: warning message
   📗: ok status message
   📘: action message
@@ -20,24 +21,34 @@ class Log {
   }
 
   static void d(String msg, {String tag = tag}) {
+    var now = DateTime.now();
+    var formatter = DateFormat('HH:mm:ss');
+    String formattedTime = formatter.format(now);
     if (!Constant.inProduction) {
-      LogUtil.d(msg, tag: '📗');
+      LogUtil.d(msg, tag: '📗 $formattedTime');
     }
   }
 
   static void v(String msg, {String tag = tag}) {
+    var now = DateTime.now();
+    var formatter = DateFormat('HH:mm:ss');
+    String formattedTime = formatter.format(now);
     if (!Constant.inProduction) {
-      LogUtil.v(msg, tag: '📘');
+      LogUtil.v(msg, tag: '📘 $formattedTime');
     }
   }
 
   static void e(String msg, {String tag = tag}) {
+    var now = DateTime.now();
+    var formatter = DateFormat('HH:mm:ss');
+    String formattedTime = formatter.format(now);
     if (!Constant.inProduction) {
-      LogUtil.e(msg, tag: '📕');
+      LogUtil.e(msg, tag: '📕 $formattedTime');
     }
   }
 
   static void json(String msg, {String tag = tag}) {
+    print('📔 json');
     if (!Constant.inProduction) {
       try {
         final dynamic data = convert.json.decode(msg);
@@ -60,6 +71,7 @@ class Log {
       int tabs = 1,
       bool isListItem = false,
       bool isLast = false}) {
+    print('📔 Map');
     final bool isRoot = tabs == 1;
     final String initialIndent = _indent(tabs);
     tabs++;
@@ -100,6 +112,7 @@ class Log {
   }
 
   static void _printList(List<dynamic> list, {String tag = tag, int tabs = 1}) {
+    print('📔 List');
     list.asMap().forEach((i, dynamic e) {
       final bool isLast = i == list.length - 1;
       if (e is Map) {

@@ -4,7 +4,7 @@ import 'package:my_template/features/module_A/model/filmModel.dart';
 import 'package:my_template/core/iview/home_iview.dart';
 import 'package:my_template/core/mvp/base_page_presenter.dart';
 import 'package:my_template/core/net/dio_utils.dart';
-import 'package:my_template/core/net/http_api.dart';
+import 'package:my_template/core/net/http_api_url.dart';
 // import 'package:my_template/shop/models/user_entity.dart';
 
 class HomePagePresenter extends BasePagePresenter<HomeIMvpView> {
@@ -50,12 +50,13 @@ class HomePagePresenter extends BasePagePresenter<HomeIMvpView> {
     // dioClient.dio.interceptors.add(AuthInterceptor());
     // dioClient.dio.interceptors.add(LoggingInterceptor());
     return requestNetwork<FilmModel>(Method.get,
-        url: HttpApi.film,
+        url: HttpApiUrl.film,
         queryParameters: params,
         isShow: isShowDialog, onSuccess: (data) {
       debugPrint("got data from http");
-      if (data != null && data.title != null) {
-        debugPrint("xxxx ${data.title!}");
+      if (data != null) {
+        FilmModel model = (data);
+        debugPrint("xxxx $model");
         /*
         /// 一页30条数据，等于30条认为有下一页
         /// 具体的处理逻辑根据具体的接口情况处理，这部分可以抽离出来
