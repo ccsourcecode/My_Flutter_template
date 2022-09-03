@@ -38,7 +38,7 @@ class DioUtils {
   factory DioUtils() => _singleton;
 
   DioUtils._() {
-    debugPrint("hit dioUtil const");
+    Log.d("Hit dioUtil DioUtils constructor");
     final BaseOptions options = BaseOptions(
       connectTimeout: _connectTimeout,
       receiveTimeout: _receiveTimeout,
@@ -69,7 +69,7 @@ class DioUtils {
 
     /// 添加攔截器
     void addInterceptor(Interceptor interceptor) {
-      debugPrint("hit dioUtil addInterceptor");
+      Log.d("Hit dioUtil addInterceptor");
       _dio.interceptors.add(interceptor);
     }
 
@@ -117,18 +117,19 @@ class DioUtils {
       // that falls out of the range of "2xx" and is also not "304".
       if (e.response != null) {
         debugPrint('Dio error!');
-        debugPrint('STATUS: ${e.response?.statusCode}');
-        debugPrint('DATA: ${e.response?.data}');
-        debugPrint('HEADERS: ${e.response?.headers}');
+        Log.e('STATUS: ${e.response?.statusCode}');
+        Log.e('DATA: ${e.response?.data}');
+        Log.e('HEADERS: ${e.response?.headers}');
         throw Exception('數據解析錯誤！');
       } else {
         // Error due to setting up or sending the request
         debugPrint('Error sending request!');
-        debugPrint(e.message);
+        Log.e(e.message);
         throw Exception('數據解析錯誤 1！');
       }
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint('Json parsing error');
+      Log.e(e.toString());
       throw Exception('數據解析錯誤 2！');
     }
     // return BaseEntity<T>(ExceptionHandle.parse_error, '數據解析錯誤！', null);

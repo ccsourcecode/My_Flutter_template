@@ -124,7 +124,7 @@ class LoggingInterceptor extends Interceptor {
     // *輸出結果
     // Log.json(response.data.toString());
 
-    debugPrint('----------End: $duration 毫秒----------');
+    debugPrint('----------End: $duration milliseconds----------');
     super.onResponse(response, handler);
   }
 

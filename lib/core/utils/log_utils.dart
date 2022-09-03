@@ -6,19 +6,34 @@ import 'package:my_template/core/constants/constant.dart';
 class Log {
   static const String tag = '*LOG*';
 
+  /*  open emoji panel for windows OS: win + .
+  📕: error message
+  📙: warning message
+  📗: ok status message
+  📘: action message
+  📓: canceled status message
+  📔: Or anything you like and want to recognize immediately by color
+  */
+
   static void init() {
     LogUtil.init(isDebug: !Constant.inProduction);
   }
 
   static void d(String msg, {String tag = tag}) {
     if (!Constant.inProduction) {
-      LogUtil.v(msg, tag: tag);
+      LogUtil.d(msg, tag: '📗');
+    }
+  }
+
+  static void v(String msg, {String tag = tag}) {
+    if (!Constant.inProduction) {
+      LogUtil.v(msg, tag: '📘');
     }
   }
 
   static void e(String msg, {String tag = tag}) {
     if (!Constant.inProduction) {
-      LogUtil.e(msg, tag: tag);
+      LogUtil.e(msg, tag: '📕');
     }
   }
 

@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 
 void main() async {
   // var packageInfo = await PackageInfo.fromPlatform();
-  var version = "log 1.0";
+  var version = "logger";
   // "${packageInfo.packageName} ${packageInfo.version} (${packageInfo.buildNumber})";
   debugPrint = (String? message, {int? wrapWidth}) =>
       debugPrintSynchronouslyWithText(message, version, wrapWidth: wrapWidth);
