@@ -56,7 +56,7 @@ class HomePagePresenter extends BasePagePresenter<HomeIMvpView> {
       debugPrint("got data from http");
       if (data != null) {
         FilmModel model = (data);
-        debugPrint("xxxx $model");
+        debugPrint("xxxx {$model._title}");
         /*
         /// 一页30条数据，等于30条认为有下一页
         /// 具体的处理逻辑根据具体的接口情况处理，这部分可以抽离出来

@@ -105,7 +105,7 @@ class LoggingInterceptor extends Interceptor {
           'RequestUrl: ${options.baseUrl}${options.path}?${Transformer.urlEncodeMap(options.queryParameters)}');
     }
     debugPrint('Request Method: ${options.method}');
-    debugPrint('Request Headers:${options.headers}');
+    debugPrint('Request Headers: ${options.headers}');
     debugPrint('Request ContentType: ${options.contentType}');
     debugPrint('Request Data: ${options.data.toString()}');
     super.onRequest(options, handler);
