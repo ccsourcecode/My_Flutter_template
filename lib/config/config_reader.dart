@@ -5,7 +5,7 @@ import './config_model.dart';
 
 class ConfigReader {
   static ConfigModel _config =
-      ConfigModel(API_HOST: "API_HOST", DEBUG: false, TESTING: false);
+      const ConfigModel(API_HOST: "API_HOST", DEBUG: false, TESTING: false);
 
   static Future<void> initializeApp(String? env) async {
     env = env ?? "development";

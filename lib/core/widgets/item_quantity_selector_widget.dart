@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_template/core/constants/app_sizes.dart';
+
+import '../constants/dimens.dart';
 
 /// Item quantity selector with +/- buttons and a text value in the middle
 class ItemQuantitySelector extends StatelessWidget {
@@ -31,7 +32,7 @@ class ItemQuantitySelector extends StatelessWidget {
           color: Colors.black54,
           width: 1,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(Sizes.p24)),
+        borderRadius: const BorderRadius.all(Radius.circular(Dimens.gap_p24)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

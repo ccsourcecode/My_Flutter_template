@@ -28,14 +28,14 @@ class StateLayout extends StatelessWidget {
           ),
         const SizedBox(
           width: double.infinity,
-          height: Dimens.gap_dp16,
+          height: Dimens.gap_p16,
         ),
         Text(
           hintText ?? type.hintText,
           style: Theme.of(context)
               .textTheme
               .titleSmall
-              ?.copyWith(fontSize: Dimens.font_sp14),
+              ?.copyWith(fontSize: Dimens.font_p14),
         ),
         Gaps.vGap50,
       ],

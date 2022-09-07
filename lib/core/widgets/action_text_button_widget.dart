@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_template/core/constants/app_sizes.dart';
+import 'package:my_template/core/constants/dimens.dart';
 
 /// Text button to be used as an [AppBar] action
 class ActionTextButton extends StatelessWidget {
@@ -9,7 +9,7 @@ class ActionTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Sizes.p16),
+      padding: const EdgeInsets.symmetric(horizontal: Dimens.gap_p16),
       child: TextButton(
         onPressed: onPressed,
         child: Text(text,

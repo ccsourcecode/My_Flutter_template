@@ -185,8 +185,8 @@ class _HomePageState extends ConsumerState<HomePage> with RestorationMixin {
           currentIndex: ref.read(homeProvider.notifier).state.value,
           elevation: 5.0,
           iconSize: 21.0,
-          selectedFontSize: Dimens.font_sp10,
-          unselectedFontSize: Dimens.font_sp10,
+          selectedFontSize: Dimens.font_p10,
+          unselectedFontSize: Dimens.font_p10,
           selectedItemColor: Theme.of(context).primaryColor,
           unselectedItemColor: isDark
               ? Colours.dark_unselected_item_color

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_template/core/constants/app_sizes.dart';
+
+import '../constants/dimens.dart';
 
 /// Primary button based on [ElevatedButton].
 /// Useful for CTAs in the app.
@@ -16,7 +17,7 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Sizes.p48,
+      height: Dimens.gap_p48,
       child: ElevatedButton(
         onPressed: onPressed,
         child: isLoading

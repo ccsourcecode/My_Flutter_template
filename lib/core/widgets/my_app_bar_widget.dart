@@ -47,7 +47,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               child: MyButton(
                 key: const Key('actionName'),
-                fontSize: Dimens.font_sp14,
+                fontSize: Dimens.font_p14,
                 minWidth: null,
                 text: actionName,
                 textColor: context.isDark ? Colours.dark_text : Colours.text,
@@ -87,7 +87,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Text(
           title.isEmpty ? centerTitle : title,
           style: const TextStyle(
-            fontSize: Dimens.font_sp18,
+            fontSize: Dimens.font_p18,
           ),
         ),
       ),

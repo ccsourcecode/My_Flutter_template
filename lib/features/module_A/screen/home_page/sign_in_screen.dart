@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_template/core/flutter_gen/assets/assets.gen.dart';
+import 'package:my_template/core/flutter_gen/assets.gen.dart';
 import 'package:my_template/core/l10n/generated/my_localizations.dart';
 
 class SignInScreen extends ConsumerWidget {

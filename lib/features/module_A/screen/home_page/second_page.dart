@@ -10,6 +10,8 @@ import 'package:my_template/features/module_A/screen/home_page/widgets/todos_par
 import 'package:my_template/core/home/home_presenter.dart';
 import 'package:my_template/features/module_A/providers/todo_provider.dart';
 
+import '../../../../core/utils/async_value_ui.dart';
+
 class SecondPage extends ConsumerStatefulWidget {
   const SecondPage({
     super.key,
@@ -56,7 +58,9 @@ class _SecondPageState extends ConsumerState<SecondPage>
               TodosPart(todoList: reversedTodoList),
               FloatingActionButton(onPressed: () async {
                 debugPrint("key pressed");
-                _homePresenter.search("_keyword", 1, true);
+                await _homePresenter.search("_keyword", 1, true);
+                if (!mounted) return;
+                showMySnackBar(context, 'Json received');
               })
             ],
           ),

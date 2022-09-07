@@ -36,7 +36,7 @@ class ClickItem extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleSmall
-                ?.copyWith(fontSize: Dimens.font_sp14),
+                ?.copyWith(fontSize: Dimens.font_p14),
           ),
         ),
         Gaps.hGap8,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:my_template/core/mvp/app_widget.dart';
+import 'package:my_template/core/mvp/main_app_widget.dart';
 import 'package:flutter/foundation.dart';
 
 void main() async {
@@ -11,8 +11,8 @@ void main() async {
   debugPrint = (String? message, {int? wrapWidth}) =>
       debugPrintSynchronouslyWithText(message, version, wrapWidth: wrapWidth);
   runApp(
-    ProviderScope(
-      child: AppWidget(),
+    const ProviderScope(
+      child: MainAppWidget(),
     ),
   );
 }

@@ -23,10 +23,10 @@ class ExceptionHandle {
   static const int unknown_error = 9999;
 
   static final Map<int, NetError> _errorMap = <int, NetError>{
-    net_error: NetError(net_error, '網絡異常，請檢查你的網絡！'),
-    parse_error: NetError(parse_error, '數據解析錯誤！'),
-    socket_error: NetError(socket_error, '網絡異常，請檢查你的網絡！'),
     http_error: NetError(http_error, '服務器異常，請稍後重試！'),
+    net_error: NetError(net_error, '網絡異常，請檢查你的網絡！'),
+    socket_error: NetError(socket_error, '網絡異常，請檢查你的網絡！'),
+    parse_error: NetError(parse_error, '數據解析錯誤！'),
     connect_timeout_error: NetError(connect_timeout_error, '連接超時！'),
     send_timeout_error: NetError(send_timeout_error, '請求超時！'),
     receive_timeout_error: NetError(receive_timeout_error, '響應超時！'),

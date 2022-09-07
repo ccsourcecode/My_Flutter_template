@@ -31,7 +31,7 @@ class HomePagePresenter extends BasePagePresenter<HomeIMvpView> {
 
   void testListData() {
     /*
-    /// 测试返回List类型数据解析
+    /// 測試返回List類型數據解析
     asyncRequestNetwork<List<CityEntity>>(Method.get,
       url: HttpApi.subscriptions,
       onSuccess: (data) {
@@ -46,20 +46,19 @@ class HomePagePresenter extends BasePagePresenter<HomeIMvpView> {
     params['q'] = text;
     params['page'] = page.toString();
     params['l'] = 'Dart';
-    // final dioClient = DioUtils.instance;
-    // dioClient.dio.interceptors.add(AuthInterceptor());
-    // dioClient.dio.interceptors.add(LoggingInterceptor());
-    return requestNetwork<FilmModel>(Method.get,
+
+    return requestNetwork<Map<String, dynamic>>(Method.get,
         url: HttpApiUrl.film,
         queryParameters: params,
-        isShow: isShowDialog, onSuccess: (data) {
-      debugPrint("got data from http");
-      if (data != null) {
-        FilmModel model = (data);
-        debugPrint("xxxx {$model._title}");
+        isShow: isShowDialog, onSuccess: (baseRespData) {
+      debugPrint("got data back from http");
+      if (baseRespData != null) {
+        Map<String, dynamic> baseResp = baseRespData;
+        final model = FilmModel.fromJson(baseResp);
+        debugPrint(model.title);
         /*
-        /// 一页30条数据，等于30条认为有下一页
-        /// 具体的处理逻辑根据具体的接口情况处理，这部分可以抽离出来
+        /// 一頁30條數據，等於30條認為有下一頁
+        /// 具體的處理邏輯根據具體的接口情況處理，這部分可以抽離出來
         view.provider.hasMore = data.items!.length == 30;
         if (page == 1) {
           /// 刷新

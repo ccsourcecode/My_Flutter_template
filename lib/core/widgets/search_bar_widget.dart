@@ -157,7 +157,7 @@ class _SearchBarState extends State<SearchBar> {
     final Widget search = MyButton(
       minHeight: 32.0,
       minWidth: 44.0,
-      fontSize: Dimens.font_sp14,
+      fontSize: Dimens.font_p14,
       radius: 4.0,
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       text: '搜索',

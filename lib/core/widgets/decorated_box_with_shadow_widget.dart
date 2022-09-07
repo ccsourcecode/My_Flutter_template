@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_template/core/constants/app_sizes.dart';
+
+import '../constants/dimens.dart';
 
 /// Custom [DecoratedBox] widget with shadow to be used at the bottom of the
 /// screen on mobile. Useful for pinning CTAs such as checkout buttons etc.
@@ -21,7 +22,7 @@ class DecoratedBoxWithShadow extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(Sizes.p16),
+        padding: const EdgeInsets.all(Dimens.gap_p16),
         child: child,
       ),
     );

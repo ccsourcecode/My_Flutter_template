@@ -12,18 +12,44 @@ import 'package:quick_actions/quick_actions.dart';
 import 'package:sizer/sizer.dart';
 import 'package:my_template/core/home/home_page.dart';
 import 'package:my_template/core/l10n/generated/my_localizations.dart';
+import 'package:sp_util/sp_util.dart';
 
-class AppWidget extends StatelessWidget {
-  AppWidget({Key? key}) : super(key: key) {
-    Log.init();
-    initDio();
+import '../../config/config_reader.dart';
+import '../../config/environment.dart';
+import '../constants/colors.dart';
+import '../net/http_utils.dart';
+import '../utils/sp_utils.dart';
+
+class MainAppWidget extends StatefulWidget {
+  const MainAppWidget({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return MainAppWidgetState();
+  }
+}
+
+class MainAppWidgetState extends State<MainAppWidget> {
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  late Locale? _locale;
+  Color _themeColor = Colours.app_main;
+
+  Future<void> init() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await ConfigReader.initializeApp(Environment.dev);
     Routes.initRoutes();
-    initQuickActions();
+    Log.init();
+    _initDio();
+    _initQuickActions();
   }
 
-  static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
 
-  void initDio() {
+  void _initDio() {
     final List<Interceptor> interceptors = <Interceptor>[];
 
     /// 統一添加身份驗證請求頭
@@ -44,7 +70,7 @@ class AppWidget extends StatelessWidget {
     );
   }
 
-  void initQuickActions() {
+  void _initQuickActions() {
     if (Device.isMobile) {
       const QuickActions quickActions = QuickActions();
       if (Device.isIOS) {
@@ -66,6 +92,23 @@ class AppWidget extends StatelessWidget {
     }
   }
 
+  void _loadLocale() {
+    setState(() {
+      LanguageModel? model =
+          SpUtil.getObj(Constant.keyLanguage, (v) => LanguageModel.fromJson(v));
+      if (model != null) {
+        _locale = Locale(model.languageCode, model.countryCode);
+      } else {
+        _locale = null;
+      }
+
+      String colorKey = SpUtils.getThemeColor();
+      if (themeColorMap[colorKey] != null) {
+        _themeColor = themeColorMap[colorKey]!;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -80,11 +123,11 @@ class AppWidget extends StatelessWidget {
               }
             }
           },
-          child: const MaterialApp(
-            debugShowCheckedModeBanner: false,
+          child: MaterialApp(
+            debugShowCheckedModeBanner: ConfigReader.config().DEBUG,
             localizationsDelegates: MyLocalizations.localizationsDelegates,
             supportedLocales: MyLocalizations.supportedLocales,
-            home: HomePage(),
+            home: const HomePage(),
           ),
         );
       },

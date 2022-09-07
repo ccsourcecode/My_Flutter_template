@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_template/core/constants/app_sizes.dart';
+
+import '../constants/dimens.dart';
 
 /// Custom text button with a fixed height
 class CustomTextButton extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Sizes.p48,
+      height: Dimens.gap_p48,
       child: TextButton(
         onPressed: onPressed,
         child: Text(

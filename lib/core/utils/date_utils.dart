@@ -121,7 +121,7 @@ class DateUtils {
     }
   }
 
-  /// Whether or not two times are on the same day.
+  /// Whether or not two DateTime are on the same day.
   static bool isSameDay(DateTime a, DateTime b) {
     return a.year == b.year && a.month == b.month && a.day == b.day;
   }

@@ -55,3 +55,16 @@ extension AsyncValueUISnackBar on VoidAsyncValue {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
+
+void showMySnackBar(BuildContext context, String msg) {
+  final snackBar = SnackBar(
+    content: Text(msg),
+    action: SnackBarAction(
+      label: 'OK',
+      onPressed: () {
+        debugPrint('Snackbar button pressed.');
+      },
+    ),
+  );
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}
