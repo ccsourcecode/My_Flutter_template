@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_template/core/flutter_gen/assets.gen.dart';
-import 'package:my_template/core/l10n/generated/my_localizations.dart';
+import 'package:my_template/core/l10n/generated/L10n.dart';
 
 class SignInScreen extends ConsumerWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class SignInScreen extends ConsumerWidget {
           width: 200,
           height: 50,
           child: ElevatedButton(
-            child: Text(MyLocalizations.of(context)!.verificationCodeLogin,
+            child: Text(L10n.of(context)!.verificationCodeLogin,
                 style: TextStyle(fontFamily: Assets.fonts.robotoThin)),
             // Image(image: AssetImage(Assets.images.home.iconShop.path),),
             onPressed: () => debugPrint("ddd"),

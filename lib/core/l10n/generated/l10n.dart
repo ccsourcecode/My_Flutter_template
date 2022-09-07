@@ -5,22 +5,22 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'my_localizations_en.dart';
-import 'my_localizations_zh.dart';
+import 'l10n_en.dart';
+import 'l10n_zh.dart';
 
-/// Callers can lookup localized strings with an instance of MyLocalizations
-/// returned by `MyLocalizations.of(context)`.
+/// Callers can lookup localized strings with an instance of L10n
+/// returned by `L10n.of(context)`.
 ///
-/// Applications need to include `MyLocalizations.delegate()` in their app's
+/// Applications need to include `L10n.delegate()` in their app's
 /// `localizationDelegates` list, and the locales they support in the app's
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'generated/my_localizations.dart';
+/// import 'generated/l10n.dart';
 ///
 /// return MaterialApp(
-///   localizationsDelegates: MyLocalizations.localizationsDelegates,
-///   supportedLocales: MyLocalizations.supportedLocales,
+///   localizationsDelegates: L10n.localizationsDelegates,
+///   supportedLocales: L10n.supportedLocales,
 ///   home: MyApplicationHome(),
 /// );
 /// ```
@@ -57,18 +57,19 @@ import 'my_localizations_zh.dart';
 /// Select and expand the newly-created Localizations item then, for each
 /// locale your application supports, add a new item and select the locale
 /// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the MyLocalizations.supportedLocales
+/// be consistent with the languages listed in the L10n.supportedLocales
 /// property.
-abstract class MyLocalizations {
-  MyLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+abstract class L10n {
+  L10n(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
-  static MyLocalizations? of(BuildContext context) {
-    return Localizations.of<MyLocalizations>(context, MyLocalizations);
+  static L10n? of(BuildContext context) {
+    return Localizations.of<L10n>(context, L10n);
   }
 
-  static const LocalizationsDelegate<MyLocalizations> delegate = _MyLocalizationsDelegate();
+  static const LocalizationsDelegate<L10n> delegate = _L10nDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -80,7 +81,8 @@ abstract class MyLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -202,34 +204,34 @@ abstract class MyLocalizations {
   String get registeredTips;
 }
 
-class _MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {
-  const _MyLocalizationsDelegate();
+class _L10nDelegate extends LocalizationsDelegate<L10n> {
+  const _L10nDelegate();
 
   @override
-  Future<MyLocalizations> load(Locale locale) {
-    return SynchronousFuture<MyLocalizations>(lookupMyLocalizations(locale));
+  Future<L10n> load(Locale locale) {
+    return SynchronousFuture<L10n>(lookupL10n(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'zh'].contains(locale.languageCode);
 
   @override
-  bool shouldReload(_MyLocalizationsDelegate old) => false;
+  bool shouldReload(_L10nDelegate old) => false;
 }
 
-MyLocalizations lookupMyLocalizations(Locale locale) {
-
-
+L10n lookupL10n(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return MyLocalizationsEn();
-    case 'zh': return MyLocalizationsZh();
+    case 'en':
+      return L10nEn();
+    case 'zh':
+      return L10nZh();
   }
 
   throw FlutterError(
-    'MyLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'L10n.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

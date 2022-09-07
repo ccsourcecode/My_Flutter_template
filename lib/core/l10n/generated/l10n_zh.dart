@@ -1,8 +1,8 @@
-import 'my_localizations.dart';
+import 'l10n.dart';
 
 /// The translations for Chinese (`zh`).
-class MyLocalizationsZh extends MyLocalizations {
-  MyLocalizationsZh([String locale = 'zh']) : super(locale);
+class L10nZh extends L10n {
+  L10nZh([String locale = 'zh']) : super(locale);
 
   @override
   String get title => 'Flutter Deer';

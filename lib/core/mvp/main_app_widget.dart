@@ -11,7 +11,7 @@ import 'package:my_template/core/utils/log_utils.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:sizer/sizer.dart';
 import 'package:my_template/core/home/home_page.dart';
-import 'package:my_template/core/l10n/generated/my_localizations.dart';
+import 'package:my_template/core/l10n/generated/L10n.dart';
 import 'package:sp_util/sp_util.dart';
 
 import '../../config/config_reader.dart';
@@ -125,8 +125,8 @@ class MainAppWidgetState extends State<MainAppWidget> {
           },
           child: MaterialApp(
             debugShowCheckedModeBanner: ConfigReader.config().DEBUG,
-            localizationsDelegates: MyLocalizations.localizationsDelegates,
-            supportedLocales: MyLocalizations.supportedLocales,
+            localizationsDelegates: L10n.localizationsDelegates,
+            supportedLocales: L10n.supportedLocales,
             home: const HomePage(),
           ),
         );

@@ -1,8 +1,8 @@
-import 'my_localizations.dart';
+import 'l10n.dart';
 
 /// The translations for English (`en`).
-class MyLocalizationsEn extends MyLocalizations {
-  MyLocalizationsEn([String locale = 'en']) : super(locale);
+class L10nEn extends L10n {
+  L10nEn([String locale = 'en']) : super(locale);
 
   @override
   String get title => 'Flutter Deer';
